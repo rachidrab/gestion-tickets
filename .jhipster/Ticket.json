@@ -1,0 +1,63 @@
+{
+  "changelogDate": "20220521195533",
+  "dto": "no",
+  "fields": [
+    {
+      "fieldName": "dateOuverture",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateCloture",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "statut",
+      "fieldType": "TicketStatut",
+      "fieldValues": "EN_COURS,RESOLU"
+    },
+    {
+      "fieldName": "descripition",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "urgence",
+      "fieldType": "TicketUrgence",
+      "fieldValues": "CRITIQUE,URGENT,NORMAL,NON_URGENT"
+    },
+    {
+      "fieldName": "environnement",
+      "fieldType": "String"
+    }
+  ],
+  "jpaMetamodelFiltering": false,
+  "name": "Ticket",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nom",
+      "otherEntityName": "logiciel",
+      "relationshipName": "logiciel",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "ticket",
+      "ownerSide": true,
+      "relationshipName": "developpeur",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "ticket",
+      "ownerSide": true,
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}
